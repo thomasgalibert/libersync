@@ -1,0 +1,40 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        email: "Adresse email"
+        agreement: "J'accepte les conditions d'utilisation"
+        name: "Nom"
+      hoa:
+        name: "Nom de l'association"
+        street: "Adresse"
+        zip: "Code postal"
+        town: "Ville"
+        country: "Pays"
+        phone: "Téléphone"
+        email: "Adresse email"
+      lot:
+        number: "Numéro de lot"
+        surface: "Surface en m2"
+        shares: "Nombre de parts"
+        description: "Description du lot"
+        street: "Adresse"
+        zip: "Code postal"
+        town: "Ville"
+        country: "Pays"
+      owner:
+        name: "Nom du propriétaire"
+        status: "Status juridique du propriétaire"
+        street: "Adresse"
+        zip: "Code postal"
+        town: "Ville"
+        country: "Pays"
+        phone: "Téléphone"
+        email: "Adresse email"
+      ownership:
+        since_at: "Date de début"
+        until_at: "Date de fin"
+        owner: "Propriétaire"
+        lot: "Lot"
+        splitting: "Droit de propriété"
+        

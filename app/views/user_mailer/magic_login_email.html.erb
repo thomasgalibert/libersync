@@ -1,0 +1,16 @@
+<h1>Lien de connexion à Libersync</h1>
+
+<p>
+  <%= link_to "Cliquez sur ce lien pour vous connecter", 
+      login_url(token: @user.generate_token_for(:magic_login)) %>
+</p>
+
+
+<p>
+  Le lien restera valide 15 minutes. Au delà de ce délai, il faudra en demander un nouveau.
+</p>
+
+<p>
+  Cordialement,<br />
+  L'équipe de Libersync.
+</p>

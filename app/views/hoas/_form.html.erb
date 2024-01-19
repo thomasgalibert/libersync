@@ -1,0 +1,9 @@
+<%= form_with model: hoa, builder: CustomFormBuilder do |form| %>
+  <%= render "shared/errors", object: form.object %>
+  <%= form.text_field :name, autofocus: true %>
+  <%= form.text_area :street %>
+  <%= form.text_field :zip %>
+  <%= form.text_field :town %>
+  <%= form.country_select :country %>
+  <%= form.submit %>
+<% end %>

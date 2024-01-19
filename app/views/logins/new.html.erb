@@ -1,0 +1,22 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Connexion", subtitle: "Renseigez votre email et nous vous enverrons un lien pour vous connecter directment." %>
+<% end %>
+
+<div class="mt-10">
+  <%= form_with url: login_path, builder: CustomFormBuilder do |form| %>
+    <%= form.email_field :email, required: true, placeholder: "monemail@hey.com" %>
+    <%= form.submit "Envoyer" %>
+  <% end %>
+</div>
+
+<div class="mt-6 max-w-2xl mx-auto col-span-3 sm:col-span-2 text-base flex flex-col space-y-2 bg-slate-900 border rounded-xl border-slate-600 text-slate-400 p-6">
+  <p class="text-lg text-slate-300 mb-6">Comprendre la connexion via lien unique.</p>
+  <p>
+    Afin d'améliorer la sécurité et simplifier l'utilisation du logiciel nous utilisons
+    un système de connexion sans mot de passe.
+  </p>
+  <p>
+    En effet, nous vous envoyons à chaque fois un lien par email contenant un lien à usage
+    unique qui vous permet de vous connecter directement à votre compte.
+  </p>
+</div>

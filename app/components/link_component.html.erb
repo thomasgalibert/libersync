@@ -1,0 +1,5 @@
+<%= link_to @url, 
+  class: "text-indigo-100 w-full inline-flex justify-center hover:bg-indigo-700  " + 
+         "rounded-full bg-indigo-600 px-2 py-1.5  hover:shadow-md", target: @target do %>
+  <span><%= @name.html_safe %></span>
+<% end %>

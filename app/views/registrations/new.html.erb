@@ -1,0 +1,25 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Inscription", 
+      subtitle: "Renseigez votre email et nous vous enverrons <br /> un lien pour vous connecter directement" %>
+<% end %>
+
+<div class="mt-10">
+  <%= form_with url: registration_path, 
+      model: @user, 
+      builder: CustomFormBuilder do |form| %>
+
+    <%= render "shared/errors", object: form.object %>
+
+    <%= form.email_field :email %>
+    <%= form.text_field :name %>
+    <%= form.check_box :agreement %>
+    <%= form.submit "Créer un nouveau compte utilisateur" %>
+  <% end %>
+</div>
+
+<div class="mt-6 max-w-2xl mx-auto col-span-3 sm:col-span-2 text-base flex flex-col space-y-2 bg-slate-900 border rounded-xl border-slate-600 text-slate-400 p-6">
+  <p class="text-2xl mb-6">Conditions générales d'utilisation</p>
+  <div class="text-xs text-gray-600 terms h-80 overflow-y-auto">
+    <%= render "registrations/terms" %>
+  </div>
+</div>

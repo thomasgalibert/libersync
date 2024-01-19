@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_18_193347) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_19_153422) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,78 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_18_193347) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "hoas", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.text "street"
+    t.string "zip"
+    t.string "town"
+    t.string "country"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hoas_on_user_id"
+  end
+
+  create_table "lots", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "hoa_id", null: false
+    t.integer "number"
+    t.text "description"
+    t.text "street"
+    t.string "zip"
+    t.string "town"
+    t.string "country"
+    t.integer "surface"
+    t.integer "shares"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hoa_id"], name: "index_lots_on_hoa_id"
+    t.index ["user_id"], name: "index_lots_on_user_id"
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.string "status"
+    t.text "street"
+    t.string "zip"
+    t.string "town"
+    t.string "country"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_owners_on_user_id"
+  end
+
+  create_table "ownerships", force: :cascade do |t|
+    t.integer "owner_id", null: false
+    t.integer "lot_id", null: false
+    t.date "since_at"
+    t.date "until_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "splitting"
+    t.index ["lot_id"], name: "index_ownerships_on_lot_id"
+    t.index ["owner_id"], name: "index_ownerships_on_owner_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.datetime "last_sign_in_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "hoas", "users"
+  add_foreign_key "lots", "hoas"
+  add_foreign_key "lots", "users"
+  add_foreign_key "owners", "users"
+  add_foreign_key "ownerships", "lots"
+  add_foreign_key "ownerships", "owners"
 end

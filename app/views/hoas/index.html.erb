@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Mes associations", subtitle: "Retrouvez ici la liste de vos associations enregistrées." %>
+<% end %>
+
+<div class="mt-10"><%= render LinkComponent.new name: "Ajouter une association", url: new_hoa_path %></div>
+
+<ul id="hoas" class="mt-10 flex flex-col space-y-2">
+  <%= render @hoas %>
+</ul>

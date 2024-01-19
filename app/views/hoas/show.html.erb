@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: @hoa.name, subtitle: "Composition des lots de l'association" %>
+<% end %>
+
+<% content_for :back_button, render(BackButtonComponent.new) %>
+
+<div class="mt-10"><%= render LinkComponent.new name: "Ajouter un lot", url: new_hoa_lot_path(@hoa) %></div>
+
+<ul id="lots" class="mt-10 flex flex-col space-y-2">
+  <%= render @hoa.lots %>
+</ul>

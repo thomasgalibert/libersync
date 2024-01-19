@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Libersync", subtitle: "Logiciel open-source pour le ASL" %>
+<% end %>
+
+<div>
+  <%= render LinkComponent.new name: "Créer un compte", url: new_registration_path %>
+</div>

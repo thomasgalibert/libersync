@@ -94,4 +94,12 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: Rails.application.credentials.dig(:mailgun, :api_key),
+    domain: 'mg.libersync.com'
+    # api_host: "api.eu.mailgun.net"  # Uncomment this line for EU region domains
+  }
+
+  config.action_mailer.default_url_options = { host: "libersync.com" }
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: one
+  lot: one
+  since_at: 2024-01-19
+  until_at: 2024-01-19
+
+two:
+  owner: two
+  lot: two
+  since_at: 2024-01-19
+  until_at: 2024-01-19

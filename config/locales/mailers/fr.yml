@@ -1,0 +1,4 @@
+fr:
+  user_mailer:
+    magic_login_email:
+      subject: "Lien de connexion à Hammurabi BCP"

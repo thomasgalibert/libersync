@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Nouveau lot", subtitle: "ASL : #{@hoa.name}" %>
+<% end %>
+
+<% content_for :back_button, render(BackButtonComponent.new) %>
+
+<%= render 'form', lot: @lot, hoa: @hoa %>

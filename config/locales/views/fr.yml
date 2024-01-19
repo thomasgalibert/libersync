@@ -1,0 +1,37 @@
+fr:
+  sessions:
+    unauthenticate: "Vous n'êtes pas connecté."
+  registrations:
+    create:
+      notice: "Vous allez recevoir par email un lien pour vous connecter directement."
+  flash:
+    title:
+      notice: "Parfait !"
+      alert: "Attention !"
+  errors:
+    title: "Attention ! Il y a des erreurs :"
+  pagy:
+    item_name:
+      one: "élément"
+      other: "éléments"
+    nav:
+      prev: "&lsaquo;&nbsp;Précédent"
+      next: "Suivant&nbsp;&rsaquo;"
+      gap: "&hellip;"
+    info:
+      no_items: "Aucun %{item_name} trouvé"
+      single_page: "Affichage de <b>%{count}</b> %{item_name}"
+      multiple_pages: "Affichage des %{item_name} <b>%{from} à %{to}</b> sur <b>%{count}</b> au total"
+    combo_nav_js: "<label>Page %{page_input} sur %{pages}</label>"
+    items_selector_js: "<label>Afficher %{items_input} %{item_name} par page</label>"
+  helpers:
+    submit:
+      hoa:
+        create: "Enregistrer l'association"
+        update: "Mettre à jour les informations"
+      lot:
+        create: "Enregistrer le lot"
+        update: "Mettre à jour les informations"
+      owner:
+        create: "Enregistrer le propriétaire"
+        update: "Mettre à jour les informations"

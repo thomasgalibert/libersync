@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-dvh">
   <head>
     <title>Libersync | ASL Management</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,9 +13,14 @@
     <%= content_for :head %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="text-slate-200 bg-slate-900 px-5 sm:px-0 relative h-full">
+    <%= yield :back_button %>
+    <%= render "layouts/nav" %>
+    <main class="max-w-xl mx-auto mt-4 bg-slate-700/25 px-5 py-10 border rounded-xl border-slate-700 relative">
+      <%= yield :title %>
       <%= yield %>
+      <%= render "layouts/grid" %>
     </main>
+    <%= render "layouts/logo" %>
   </body>
 </html>

@@ -31,10 +31,17 @@ fr:
         country: "Pays"
         phone: "Téléphone"
         email: "Adresse email"
+        statuses:
+          moral: "Personne morale"
+          physical: "Personne physique"
+          indivision: "Indivision"
       ownership:
         since_at: "Date de début"
         until_at: "Date de fin"
-        owner: "Propriétaire"
+        owner_id: "Propriétaire"
         lot: "Lot"
         splitting: "Droit de propriété"
+        splittings:
+          full: "Pleine propriété"
+          splitted: "Nu-propriété"
         

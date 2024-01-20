@@ -1,0 +1,15 @@
+<%= form_with model: @owner, builder: CustomFormBuilder do |form| %>
+  <%= render "shared/errors", object: form.object %>
+
+  <%= form.text_field :name, autofocus: true %>
+  <%= form.select :status, Owner.statuses.map { |_, status| [t("activerecord.attributes.owner.statuses.#{status}"), status] } %>
+  <%= form.text_area :street %>
+  <%= form.text_field :zip %>
+  <%= form.text_field :town %>
+  <%= form.country_select :country %>
+  <%= form.email_field :email %>
+  <%= form.phone_field :phone %>
+
+  <%= form.submit %>
+
+<% end %>

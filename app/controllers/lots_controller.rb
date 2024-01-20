@@ -31,7 +31,7 @@ class LotsController < ApplicationController
 
   def update
     if @lot.update(lot_params)
-      redirect_to @hoa, notice: "Lot modifié avec succès !"
+      redirect_to hoa_lot_path(@hoa, @lot), notice: "Lot modifié avec succès !"
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Liste des Propriétaires", subtitle: "Retrouvez ici la liste de vos propriétaires enregistrés." %>
+<% end %>
+
+<div class="mt-10"><%= render LinkComponent.new name: "Ajouter un propriétaire", url: new_owner_path %></div>
+
+<ul id="owners" class="mt-10 flex flex-col space-y-2">
+  <%= render @owners %>
+</ul>

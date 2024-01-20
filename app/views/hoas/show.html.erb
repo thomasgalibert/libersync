@@ -3,6 +3,7 @@
 <% end %>
 
 <% content_for :back_button, render(BackButtonComponent.new) %>
+<% content_for :edit_button, render(EditButtonComponent.new(url: edit_hoa_path(@hoa))) %>
 
 <div class="mt-10"><%= render LinkComponent.new name: "Ajouter un lot", url: new_hoa_lot_path(@hoa) %></div>
 

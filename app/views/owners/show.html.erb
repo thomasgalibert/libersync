@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: @owner.name, subtitle: k(@owner).address %>
+<% end %>
+
+<% content_for :edit_button, render(EditButtonComponent.new(url: edit_owner_path(@owner))) %>
+
+<% content_for :back_button, render(BackButtonComponent.new) %>
+
+<div class="text-center">
+  T. <%= @owner.phone %> | <%= @owner.email %>
+</div>

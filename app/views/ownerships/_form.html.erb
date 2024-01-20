@@ -1,0 +1,9 @@
+<%= form_with model: [lot, ownership], builder: CustomFormBuilder do |form| %>
+  <%= form.collection_select :owner_id, current_user.owners, :id, :name %>
+  <%= form.date_field :since_at %>
+  <%= form.date_field :until_at %>
+  <%= form.select :splitting, 
+      Ownership.splittings.map { |_, splitting| [t("activerecord.attributes.ownership.splittings.#{splitting}"), splitting] } %>
+
+  <%= form.submit %>
+<% end %>

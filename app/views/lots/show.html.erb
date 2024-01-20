@@ -2,4 +2,12 @@
   <%= render TitleComponent.new title: "Lot N° #{@lot.number} - #{@hoa.name}", subtitle: k(@lot).address %>
 <% end %>
 
+<% content_for :edit_button, render(EditButtonComponent.new(url: edit_hoa_lot_path(@hoa, @lot))) %>
+
 <% content_for :back_button, render(BackButtonComponent.new) %>
+
+<div class="mt-10"><%= render LinkComponent.new name: "Ajouter une propriété", url: new_lot_ownership_path(@lot) %></div>
+
+<ul id="ownerships" class="mt-10 flex flex-col space-y-2">
+  <%= render @lot.ownerships %>
+</ul>

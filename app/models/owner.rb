@@ -4,4 +4,6 @@ class Owner < ApplicationRecord
   has_many :owners, through: :ownerships
 
   validates :name, presence: true, uniqueness: { scope: :user_id }
+
+  enum :status, moral: "moral", physical: "physical", indivision: "indivision"
 end

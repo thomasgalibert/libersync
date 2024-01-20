@@ -35,3 +35,6 @@ fr:
       owner:
         create: "Enregistrer le propriétaire"
         update: "Mettre à jour les informations"
+      ownership:
+        create: "Enregistrer la propriété"
+        update: "Mettre à jour les informations"

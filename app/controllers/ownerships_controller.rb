@@ -1,14 +1,14 @@
 class OwnershipsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_lot
-  before_action :set_ownserhip, only: [:show, :edit, :update, :destroy]
+  before_action :set_ownership, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ownserhips = @lot.ownserhips  
+    @ownerships = @lot.ownerships  
   end
 
   def new
-    @ownserhip = @lot.ownserhips.new
+    @ownership = @lot.ownerships.new
   end
 
   def edit
@@ -20,42 +20,44 @@ class OwnershipsController < ApplicationController
   end
 
   def create
-    @ownserhip = @lot.ownserhips.new(ownserhip_params)
-    if @ownserhip.save
-      redirect_to @lot, notice: "Période ajoutée avec succès !"
+    @ownership = @lot.ownerships.new(ownership_params)
+    if @ownership.save
+      redirect_to hoa_lot_path(@hoa, @lot), notice: "Période ajoutée avec succès !"
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if @ownserhip.update(ownserhip_params)
-      redirect_to @lot, notice: "Période modifiée avec succès !"
+    if @ownership.update(ownership_params)
+      redirect_to hoa_lot_path(@hoa, @lot), notice: "Période modifiée avec succès !"
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @ownserhip.destroy
-    redirect_to @lot, notice: "Période supprimée avec succès !"
+    @ownership.destroy
+    redirect_to hoa_lot_path(@hoa, @lot), notice: "Période supprimée avec succès !"
   end
 
   private
 
   def set_lot
     @lot = current_user.lots.find(params[:lot_id])
+    @hoa = @lot.hoa
   end
 
-  def set_ownserhip
-    @ownserhip = @lot.ownserhips.find(params[:id])
+  def set_ownership
+    @ownership = @lot.ownerships.find(params[:id])
   end
 
-  def ownserhip_params
-    params.require(:ownserhip).permit(
+  def ownership_params
+    params.require(:ownership).permit(
       :owner_id,
       :since_at,
-      :until_at
+      :until_at,
+      :splitting
     )
   end
 end

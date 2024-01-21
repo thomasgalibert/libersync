@@ -1,0 +1,8 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Lot N° #{@lot.number} - #{@hoa.name}", subtitle: @ownership.owner.name %>
+<% end %>
+
+<% content_for :edit_button, render(EditButtonComponent.new(url: edit_lot_ownership_path(@lot, @ownership))) %>
+<% content_for :delete_button, render(DeleteButtonComponent.new(url: lot_ownership_path(@lot, @ownership))) %>
+
+<% content_for :back_button, render(BackButtonComponent.new) %>

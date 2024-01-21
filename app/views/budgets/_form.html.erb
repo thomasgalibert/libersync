@@ -1,0 +1,6 @@
+<%= form_with model: budget, builder: CustomFormBuilder do |form| %>
+  <%= form.collection_select :hoa_id, current_user.hoas, :id, :name %>
+  <%= form.number_field :year %>
+  <%= form.number_field :amount %>
+  <%= form.submit %>
+<% end %>

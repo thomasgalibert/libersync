@@ -38,3 +38,6 @@ fr:
       ownership:
         create: "Enregistrer la propriété"
         update: "Mettre à jour les informations"
+      budget:
+        create: "Enregistrer le budget"
+        update: "Mettre à jour les informations"

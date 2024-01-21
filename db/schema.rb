@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_19_153422) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_21_110633) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -47,6 +47,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_153422) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "hoa_id", null: false
+    t.integer "year"
+    t.integer "amount_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hoa_id"], name: "index_budgets_on_hoa_id"
+    t.index ["user_id"], name: "index_budgets_on_user_id"
   end
 
   create_table "hoas", force: :cascade do |t|
@@ -107,6 +118,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_153422) do
     t.index ["owner_id"], name: "index_ownerships_on_owner_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.integer "budget_id", null: false
+    t.integer "owner_id", null: false
+    t.integer "lot_id", null: false
+    t.date "paid_at"
+    t.string "method"
+    t.integer "amount_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_payments_on_budget_id"
+    t.index ["lot_id"], name: "index_payments_on_lot_id"
+    t.index ["owner_id"], name: "index_payments_on_owner_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "name"
@@ -117,10 +142,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_153422) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "budgets", "hoas"
+  add_foreign_key "budgets", "users"
   add_foreign_key "hoas", "users"
   add_foreign_key "lots", "hoas"
   add_foreign_key "lots", "users"
   add_foreign_key "owners", "users"
   add_foreign_key "ownerships", "lots"
   add_foreign_key "ownerships", "owners"
+  add_foreign_key "payments", "budgets"
+  add_foreign_key "payments", "lots"
+  add_foreign_key "payments", "owners"
 end

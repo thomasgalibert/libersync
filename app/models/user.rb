@@ -26,4 +26,5 @@ class User < ApplicationRecord
   has_many :lots, through: :hoas
   has_many :owners, dependent: :destroy
   has_many :ownerships, through: :owners
+  has_many :budgets, dependent: :destroy
 end

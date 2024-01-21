@@ -44,4 +44,8 @@ fr:
         splittings:
           full: "Pleine propriété"
           splitted: "Nu-propriété"
+      budget:
+        year: "Année"
+        amount: "Montant"
+        hoa_id: "Association"
         

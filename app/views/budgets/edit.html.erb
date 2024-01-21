@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Modifier le budget", subtitle: "Renseignez les informations suivantes :" %>
+<% end %>
+
+<% content_for :back_button, render(BackButtonComponent.new) %>
+
+<%= render 'form', budget: @budget %>

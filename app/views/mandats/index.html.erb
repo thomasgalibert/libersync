@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Liste des mandats", subtitle: "ASL #{@hoa.name}" %>
+<% end %>
+
+<div class="mt-10"><%= render LinkComponent.new name: "Ajouter un mandat", url: new_hoa_mandat_path(@hoa) %></div>
+
+<ul id="mandats" class="mt-10 flex flex-col space-y-2">
+  <%= render @mandats %>
+</ul>

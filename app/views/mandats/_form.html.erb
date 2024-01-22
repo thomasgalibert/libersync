@@ -1,0 +1,16 @@
+<%= form_with model: [hoa, mandat], builder: CustomFormBuilder do |form| %>
+  <%= render "shared/errors", object: form.object %>
+  <%= form.select :sexe, translated_enum_options_for(form.object, "sexes") %>
+  <%= form.text_field :name %>
+  <%= form.text_area :street %>
+  <%= form.text_field :zip %>
+  <%= form.text_field :town %>
+  <%= form.country_select :country %>
+  <%= form.email_field :email %>
+  <%= form.phone_field :phone %>
+  <%= form.select :job, translated_enum_options_for(form.object, "jobs") %>
+  <%= form.date_field :since_at %>
+  <%= form.date_field :until_at %>
+  <%= form.file_field :signature %>
+  <%= form.submit %>
+<% end %>

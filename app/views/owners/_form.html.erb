@@ -2,7 +2,7 @@
   <%= render "shared/errors", object: form.object %>
 
   <%= form.text_field :name, autofocus: true %>
-  <%= form.select :status, Owner.statuses.map { |_, status| [t("activerecord.attributes.owner.statuses.#{status}"), status] } %>
+  <%= form.select :status, translated_enum_options_for(form.object, "statuses") %>
   <%= form.text_area :street %>
   <%= form.text_field :zip %>
   <%= form.text_field :town %>

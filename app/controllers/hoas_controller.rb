@@ -54,7 +54,8 @@ class HoasController < ApplicationController
       :town,
       :country,
       :email,
-      :phone
+      :phone,
+      :logo
     )
   end
 end

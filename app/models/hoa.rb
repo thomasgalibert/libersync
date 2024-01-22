@@ -13,7 +13,16 @@
 class Hoa < ApplicationRecord
   belongs_to :user
   has_many :lots, dependent: :destroy
+  has_many :owners, through: :lots
+  has_many :mandats, dependent: :destroy
   default_scope { order(:name) }
 
   validates :name, :street, :zip, :town, :country, presence: true
+
+  has_one_attached :logo
+
+  def president
+    self.mandats.presidents.actives.first
+  end
+
 end

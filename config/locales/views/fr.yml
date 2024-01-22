@@ -41,3 +41,9 @@ fr:
       budget:
         create: "Enregistrer le budget"
         update: "Mettre à jour les informations"
+      payment:
+        create: "Enregistrer le paiement"
+        update: "Mettre à jour les informations"
+      mandat:
+        create: "Enregistrer le mandat"
+        update: "Mettre à jour les informations"

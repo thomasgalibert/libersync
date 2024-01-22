@@ -13,6 +13,7 @@ fr:
         country: "Pays"
         phone: "Téléphone"
         email: "Adresse email"
+        logo: "Choisissez un logo"
       lot:
         number: "Numéro de lot"
         surface: "Surface en m2"
@@ -48,4 +49,36 @@ fr:
         year: "Année"
         amount: "Montant"
         hoa_id: "Association"
+      payment:
+        lot_id: "Lot"
+        owner_id: "Propriétaire"
+        amount: "Montant"
+        paid_at: "Date du paiement"
+        mean: "Moyen de paiement"
+        means:
+          cash: "Espèces"
+          check: "Chèque"
+          wire: "Virement"
+      mandat:
+        sexe: "Civilité"
+        sexes:
+          male: "Monsieur"
+          female: "Madame"
+          company: "Société"
+        name: "Nom et prénom ou personne morale"
+        street: "Adresse"
+        zip: "Code postal"
+        town: "Ville"
+        country: "Pays"
+        phone: "Téléphone"
+        email: "Adresse email"
+        signature: "Fichier jpg de la signature"
+        since_at: "Date de début de mandat"
+        until_at: "Date de fin de mandat"
+        job: "Fonction"
+        jobs:
+          president: "Président"
+          treasurer: "Trésorier"
+          secretary: "Secrétaire"
+
         

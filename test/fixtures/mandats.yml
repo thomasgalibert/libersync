@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hoa: one
+  sexe: MyString
+  name: MyString
+  street: MyText
+  zip: MyString
+  town: MyString
+  country: MyString
+  email: MyString
+  phone: MyString
+  job: MyString
+  since_at: 2024-01-22
+  until_at: 2024-01-22
+
+two:
+  hoa: two
+  sexe: MyString
+  name: MyString
+  street: MyText
+  zip: MyString
+  town: MyString
+  country: MyString
+  email: MyString
+  phone: MyString
+  job: MyString
+  since_at: 2024-01-22
+  until_at: 2024-01-22

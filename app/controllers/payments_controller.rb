@@ -16,7 +16,13 @@ class PaymentsController < ApplicationController
   end
 
   def show
-    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PaymentPdf.new(@payment)
+        send_data pdf.render, filename: "recu_paiement_#{@hoa.name}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
   def create
@@ -30,7 +36,7 @@ class PaymentsController < ApplicationController
 
   def update
     if @payment.update(payment_params)
-      redirect_to budget_payment_path(@budget, @payment), notice: "Paiement modifié avec succès !"
+      redirect_to @budget, notice: "Paiement modifié avec succès !"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,6 +51,7 @@ class PaymentsController < ApplicationController
 
   def set_budget
     @budget = current_user.budgets.find(params[:budget_id])
+    @hoa = @budget.hoa
   end
 
   def set_payment
@@ -57,7 +64,7 @@ class PaymentsController < ApplicationController
       :lot_id,
       :amount,
       :paid_at,
-      :method
+      :mean
     )
   end
 end

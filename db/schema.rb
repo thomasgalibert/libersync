@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_21_110633) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_22_160128) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -91,6 +91,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_21_110633) do
     t.index ["user_id"], name: "index_lots_on_user_id"
   end
 
+  create_table "mandats", force: :cascade do |t|
+    t.integer "hoa_id", null: false
+    t.string "sexe"
+    t.string "name"
+    t.text "street"
+    t.string "zip"
+    t.string "town"
+    t.string "country"
+    t.string "email"
+    t.string "phone"
+    t.string "job"
+    t.date "since_at"
+    t.date "until_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hoa_id"], name: "index_mandats_on_hoa_id"
+  end
+
   create_table "owners", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
@@ -123,7 +141,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_21_110633) do
     t.integer "owner_id", null: false
     t.integer "lot_id", null: false
     t.date "paid_at"
-    t.string "method"
+    t.string "mean"
     t.integer "amount_cents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -147,6 +165,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_21_110633) do
   add_foreign_key "hoas", "users"
   add_foreign_key "lots", "hoas"
   add_foreign_key "lots", "users"
+  add_foreign_key "mandats", "hoas"
   add_foreign_key "owners", "users"
   add_foreign_key "ownerships", "lots"
   add_foreign_key "ownerships", "owners"

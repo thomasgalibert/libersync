@@ -6,3 +6,7 @@
 <% content_for :delete_button, render(DeleteButtonComponent.new(url: lot_ownership_path(@lot, @ownership))) %>
 
 <% content_for :back_button, render(BackButtonComponent.new) %>
+
+<ul id="lots" class="mt-10 flex flex-col space-y-2 mb-10">
+  <%= render partial: "/payments/payment", collection: @lot.payments.where(owner: @ownership.owner) %>
+</ul>

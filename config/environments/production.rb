@@ -101,5 +101,5 @@ Rails.application.configure do
     # api_host: "api.eu.mailgun.net"  # Uncomment this line for EU region domains
   }
 
-  config.action_mailer.default_url_options = { host: "libersync.com" }
+  config.action_mailer.default_url_options = { host: "admin.hautsdecapestang.org" }
 end

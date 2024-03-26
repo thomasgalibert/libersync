@@ -47,3 +47,6 @@ fr:
       mandat:
         create: "Enregistrer le mandat"
         update: "Mettre à jour les informations"
+      meeting:
+        create: "Enregistrer la réunion"
+        update: "Mettre à jour les informations"

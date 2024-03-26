@@ -80,5 +80,9 @@ fr:
           president: "Président"
           treasurer: "Trésorier"
           secretary: "Secrétaire"
+      meeting:
+        name: "Nom de la réunion"
+        start_time: "Date et heure de début"
+        summary: "Ordre du jour"
 
         

@@ -1,0 +1,10 @@
+<%= form_with model: meeting, builder: CustomFormBuilder do |form| %>
+  <%= render "shared/errors", object: form.object %>
+
+  <%= form.text_field :name, autofocus: true %>
+  <%= form.collection_select :hoa_id, current_user.hoas, :id, :name %>
+  <%= form.datetime_field :start_time %>
+  <%= form.rich_text_area :summary %>
+  <%= form.submit %>
+
+<% end %>

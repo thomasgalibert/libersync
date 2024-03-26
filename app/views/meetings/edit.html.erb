@@ -1,0 +1,8 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Modifier l'assemblée", 
+    subtitle: "Renseignez les informations suivantes :" %>
+<% end %>
+
+<% content_for :back_button, render(BackButtonComponent.new) %>
+
+<%= render 'form', meeting: @meeting %>

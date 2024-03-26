@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_160128) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_165055) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -109,6 +109,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_160128) do
     t.index ["hoa_id"], name: "index_mandats_on_hoa_id"
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.integer "hoa_id", null: false
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hoa_id"], name: "index_meetings_on_hoa_id"
+  end
+
   create_table "owners", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name"
@@ -166,6 +175,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_160128) do
   add_foreign_key "lots", "hoas"
   add_foreign_key "lots", "users"
   add_foreign_key "mandats", "hoas"
+  add_foreign_key "meetings", "hoas"
   add_foreign_key "owners", "users"
   add_foreign_key "ownerships", "lots"
   add_foreign_key "ownerships", "owners"

@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  <%= render TitleComponent.new title: "Liste des Assemblées générales", subtitle: "Retrouvez ici la liste de vos assemblées générales." %>
+<% end %>
+
+<div class="mt-10"><%= render LinkComponent.new name: "Ajouter un assemblée", url: new_meeting_path %></div>
+
+<ul id="meetings" class="mt-10 flex flex-col space-y-2">
+  <%= render @meetings %>
+</ul>

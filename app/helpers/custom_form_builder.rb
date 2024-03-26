@@ -46,6 +46,15 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  def datetime_field(method, options = {})
+    label_content = label(method, class: label_class)
+    field_content = super(method, merge_tailwind_classes(input_class, options))
+
+    @template.content_tag(:div, class: field_class) do
+      label_content + @template.content_tag(:div, field_content, class: "mt-2")
+    end
+  end
+
   def email_field(method, options = {})
     label_content = label(method, class: label_class)
     field_content = super(method, merge_tailwind_classes(input_class, options))

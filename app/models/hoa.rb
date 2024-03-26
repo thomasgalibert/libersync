@@ -15,6 +15,7 @@ class Hoa < ApplicationRecord
   has_many :lots, dependent: :destroy
   has_many :owners, through: :lots
   has_many :mandats, dependent: :destroy
+  has_many :meetings, dependent: :destroy
   default_scope { order(:name) }
 
   validates :name, :street, :zip, :town, :country, presence: true

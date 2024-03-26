@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hoa: one
+  name: MyString
+  start_time: 2024-03-26 17:50:55
+
+two:
+  hoa: two
+  name: MyString
+  start_time: 2024-03-26 17:50:55

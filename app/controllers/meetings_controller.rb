@@ -11,7 +11,16 @@ class MeetingsController < ApplicationController
   end
 
   def show
-    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = MeetingPdf.new(@meeting)
+        send_data pdf.render, 
+          filename: @meeting.pdf_name, 
+          type: "application/pdf", 
+          disposition: "inline"
+      end
+    end
   end
 
   def edit
@@ -40,7 +49,9 @@ class MeetingsController < ApplicationController
       :name,
       :start_time,
       :summary,
-      :hoa_id
+      :location,
+      :hoa_id,
+      :days
     )
   end
 

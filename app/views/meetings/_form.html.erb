@@ -4,7 +4,14 @@
   <%= form.text_field :name, autofocus: true %>
   <%= form.collection_select :hoa_id, current_user.hoas, :id, :name %>
   <%= form.datetime_field :start_time %>
+  <%= form.number_field :days %>
+  
+  <%= form.label :summary %>
   <%= form.rich_text_area :summary %>
+
+  <br />
+  <%= form.label :location %>
+  <%= form.rich_text_area :location %>
   <%= form.submit %>
 
 <% end %>

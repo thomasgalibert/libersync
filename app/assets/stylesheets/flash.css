@@ -1,0 +1,32 @@
+@keyframes appear-then-fade {
+  0%,100% { opacity: 0; }
+  5%,60%  { opacity: 1; }
+}
+
+.flash {
+  display: flex;
+  inset-block-start: 1rem;
+  inset-inline-start: 50%;
+  justify-content: center;
+  position: fixed;
+  text-align: center;
+  z-index: 6;
+  transform: translate(-50%);
+
+  [data-turbo-preview] & {
+    display: none;
+  }
+}
+
+.flash__inner {
+  align-items: center;
+  animation: appear-then-fade 5s 300ms both;
+  background: black;
+  border-radius: 2em;
+  border: 2px solid #34d399;
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0.5rem 1rem;
+}

@@ -1,0 +1,7 @@
+<% if notice = flash[:notice] || flash[:alert] %>
+  <div class="flash" data-controller="element-removal" data-action="animationend->element-removal#remove">
+    <div class="flash__inner">
+      <%= notice %>
+    </div>
+  </div>
+<% end %>

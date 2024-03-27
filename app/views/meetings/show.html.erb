@@ -1,10 +1,19 @@
 <% content_for :title do %>
-  <%= render TitleComponent.new title: "AG du #{l(@meeting.start_time)}", subtitle: @meeting.name %>
+  <%= render TitleComponent.new title: "AG du #{l(@meeting.start_time, format: :short)}", subtitle: @meeting.name %>
 <% end %>
 
 <% content_for :back_button, render(BackButtonComponent.new) %>
 <% content_for :edit_button, render(EditButtonComponent.new(url: edit_meeting_path(@meeting))) %>
 
-<div class="mt-6">
-  <%= link_to "Liste des assemblées &rarr;".html_safe, meetings_path %>
+<h3 class="text-xl text-slate-400 mb-4 pb-4 border-b">Ordre du jour</h3>
+<%= @meeting.summary %>
+
+<h3 class="text-xl text-slate-400 mb-4 pb-4 border-b">Lieu de la réunion</h3>
+<%= @meeting.location %>
+
+<div class="mt-6 flex justify-between items-center">
+  <%= link_to "&larr; revenir à la liste des assemblées".html_safe, meetings_path, class: "text-slate-400" %>
+  <%= link_to meeting_path(@meeting, format: :pdf), target: "_blank" do %>
+    <svg class="size-10 hover:opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="File-Pdf-1--Streamline-Ultimate"><desc>File Pdf 1 Streamline Icon: https://streamlinehq.com</desc><g><path d="M11.46 12.26c-0.2 -0.07 -0.34 0 -0.34 0.17v6c0 0.24 0.19 0.35 0.45 0.26a3.38 3.38 0 0 0 -0.11 -6.44Z" fill="currentcolor" stroke-width="1"></path><path d="M6.5 12.12H5.37a0.25 0.25 0 0 0 -0.25 0.25v2.25a0.25 0.25 0 0 0 0.25 0.25H6.5a1.38 1.38 0 0 0 0 -2.75Z" fill="currentcolor" stroke-width="1"></path><path d="M22.5 0h-21A1.5 1.5 0 0 0 0 1.5v21A1.5 1.5 0 0 0 1.5 24h21a1.5 1.5 0 0 0 1.5 -1.5v-21A1.5 1.5 0 0 0 22.5 0Zm-16 16.12H5.37a0.25 0.25 0 0 0 -0.25 0.25v3.13a0.62 0.62 0 0 1 -1.24 0v-8a0.63 0.63 0 0 1 0.62 -0.63h2a2.63 2.63 0 0 1 0 5.25Zm4 4a0.63 0.63 0 0 1 -0.63 -0.62v-8a0.63 0.63 0 0 1 0.63 -0.63 4.63 4.63 0 0 1 0 9.25Zm10 -8H18a0.89 0.89 0 0 0 -0.88 0.88v1.62a0.25 0.25 0 0 0 0.25 0.25H19a0.63 0.63 0 0 1 0 1.25h-1.63a0.25 0.25 0 0 0 -0.25 0.25v3.13a0.62 0.62 0 0 1 -0.62 0.62 0.63 0.63 0 0 1 -0.63 -0.62V13A2.14 2.14 0 0 1 18 10.87h2.5a0.63 0.63 0 0 1 0 1.25Z" fill="currentcolor" stroke-width="1"></path></g></svg>
+  <% end %>
 </div>

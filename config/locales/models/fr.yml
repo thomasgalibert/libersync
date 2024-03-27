@@ -84,5 +84,7 @@ fr:
         name: "Nom de la réunion"
         start_time: "Date et heure de début"
         summary: "Ordre du jour"
+        location: "Lieu de la réunion"
+        days: "Nombre de jours pour transmission des observations"
 
         

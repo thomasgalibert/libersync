@@ -43,7 +43,7 @@ class PaymentPdf < Prawn::Document
   def print_barcode
   	bounding_box([@header_offset, 822], width: @header_width_right, height: 30) do
       # transparent(0.5) { stroke_bounds }
-      barcode = Barby::Code128B.new(@payment.barcode_input) 
+      barcode = Barby::Code128B.new(@payment.barcode_input)
   		barcode.annotate_pdf(self, xdim: 2)
     end
   end
@@ -108,7 +108,7 @@ class PaymentPdf < Prawn::Document
 
   def print_content
     move_down 50
-    text "Le présent document atteste que #{@payment.owner.name} a effectué un paiement de #{number_to_currency(@payment.amount)} en date du #{display_date(@payment.paid_at)} au titre de sa contribution au budget #{@payment.budget.year} de l'ASL #{@hoa.name} pour le lot #{@payment.lot.number}.", size: 12, align: :justify
+    text "Le présent document atteste que #{@payment.owner.name} a effectué un paiement de #{number_to_currency(@payment.amount)} en date du #{display_date(@payment.paid_at)} au titre de sa contribution au budget #{@payment.budget.year} de l'ASL #{@hoa.name}.", size: 12, align: :justify
     move_down 20
   end
 

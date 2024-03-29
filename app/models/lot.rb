@@ -13,4 +13,20 @@ class Lot < ApplicationRecord
   def long_name
     "Lot N° #{self.number}"
   end
+
+  def owner_at_name(date)
+    ownership = self.owner_at(date)
+    if ownership
+      ownership.owner.name
+    else
+      "N/A"
+    end
+  end
+
+  def owner_at(date)
+    ownership = self.ownerships
+      .where("since_at <= ?", date)
+      .where("until_at >= ? OR until_at IS NULL", date)
+      .order(since_at: :desc).first
+  end
 end

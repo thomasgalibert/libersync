@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @payments = @budget.payments  
+    @payments = @budget.payments
   end
 
   def new
@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def show
@@ -27,6 +27,7 @@ class PaymentsController < ApplicationController
 
   def create
     @payment = @budget.payments.new(payment_params)
+    @payment.lot = @payment.owner.lots.last
     if @payment.save
       redirect_to @budget, notice: "Paiement ajouté avec succès !"
     else
@@ -61,7 +62,6 @@ class PaymentsController < ApplicationController
   def payment_params
     params.require(:payment).permit(
       :owner_id,
-      :lot_id,
       :amount,
       :paid_at,
       :mean

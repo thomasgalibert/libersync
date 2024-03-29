@@ -1,7 +1,6 @@
 <%= form_with model: [budget, payment], builder: CustomFormBuilder do |form| %>
   <%= render 'shared/errors', object: form.object %>
-  <%= form.collection_select :lot_id, hoa.lots, :id, :long_name %>
-  <%= form.collection_select :owner_id, hoa.owners, :id, :name %>
+  <%= form.collection_select :owner_id, hoa.owners.distinct, :id, :name %>
   <%= form.number_field :amount %>
   <%= form.date_field :paid_at %>
   <%= form.select :mean, translated_enum_options_for(form.object, "means") %>

@@ -2,6 +2,9 @@
   <%= render TitleComponent.new title: k(@budget).name, subtitle: @budget.hoa.name %>
 <% end %>
 
+<h2 class="text-center">Nbr paiements : <span class="font-mono"><%= @budget.payments.count %></span></h2>
+<h2 class="text-center">Total encaissé : <span class="font-mono"><%=number_to_currency @budget.payments.sum(&:amount) %></span></h2>
+
 <% content_for :back_button, render(BackButtonComponent.new) %>
 <% content_for :edit_button, render(EditButtonComponent.new(url: edit_budget_path(@budget))) %>
 
